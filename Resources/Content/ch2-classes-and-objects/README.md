@@ -15,8 +15,8 @@ We recommend you to finish the reading list and the given assignments in 1 week 
 6. You may ask for any specific topic on the forum or Google/YouTube it yourself.
 
 ## Reading list
-1. [A simple class example (ch. 3.3) + exercises from this lab](../Books%20%2B%20Material/OOP%20Lab/04-FlowControl_SimpleClasses.pdf)
-2. [Classes, Objects, Arrays](../Books%20%2B%20Material/OOP%20Lab/05-Classes_Objects_Arrays.pdf) (Books + Material/OOP Lab/05-Classes_Objects_Arrays.pdf)
+1. [A simple class example (ch. 3.3) + exercises from this lab](../../Books%20%2B%20Material/OOP%20Lab/04-FlowControl_SimpleClasses.pdf)
+2. [Classes, Objects, Arrays](../../Books%20%2B%20Material/OOP%20Lab/05-Classes_Objects_Arrays.pdf) (Books + Material/OOP Lab/05-Classes_Objects_Arrays.pdf)
 3. [Head First Java - Chapters 2,3,4,5  (pdf pages 51-145)](http://it-ebooks.info/book/3214/) 
 4. [Java for Dummies - Part III + Chapter 10 (pages 137-247)](http://it-ebooks.info/book/777/)
 

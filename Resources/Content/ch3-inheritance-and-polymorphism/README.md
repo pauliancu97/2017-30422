@@ -13,7 +13,7 @@ We recommend you to finish the reading list and the given assignments in 1 week 
 
 
 ## Reading list
-1. [Inheritance](../Books%20%2B%20Material/OOP%20Lab/06-Inheritance.pdf)
+1. [Inheritance](../../Books%20%2B%20Material/OOP%20Lab/06-Inheritance.pdf)
 2. [Head First Java - Chapters 7-9  (pdf pages 186-292)](http://it-ebooks.info/book/3214/)
 
 

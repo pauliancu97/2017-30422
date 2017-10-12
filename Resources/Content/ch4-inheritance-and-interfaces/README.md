@@ -13,7 +13,7 @@ We recommend you to finish the reading list and the given assignments in 1 week 
 
 
 ## Reading list
-1. [Interfaces](../Resources/Books%20%2B%20Material/OOP%20Lab/07-Interfaces.pdf)
+1. [Interfaces](../../Books%20%2B%20Material/OOP%20Lab/07-Interfaces.pdf)
 2. [Head First Java - re-read chapter 8  (pdf pages 218-255)](http://it-ebooks.info/book/3214/)
 
 ## Play around with...
