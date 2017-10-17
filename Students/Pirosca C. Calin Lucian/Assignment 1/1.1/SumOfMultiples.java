@@ -38,4 +38,4 @@ public class SumOfMultiples {
 //Integer.MAX_VALUE with the total between additions or we can perform addition
 //using arrays (one slot for one digit of a number) and then compare the 
 //value of Integer.MAX_VALUE with the value stored in the slots of the array.
-//3rd option is to use libraries that provide safe arithmetic operations.
+///3rd option is to use libraries that provide safe arithmetic operations.
