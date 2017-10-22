@@ -136,4 +136,41 @@ public class MatrixOperations {
 					nrOfFilledElements++;
 		return new BigDecimal((double)nrOfFilledElements / nrOfElements * 100);
 	}
+	
+	public BigDecimal[] solveSystem(BigDecimal[][] equations, BigDecimal[] terms) {
+		int dimension = equations.length;
+		BigDecimal[][] tempEqs = new BigDecimal[dimension][dimension];
+		BigDecimal[] tempTerms = new BigDecimal[dimension];
+		for(int row = 0; row < dimension; row++)
+			for(int column = 0; column < dimension; column++)
+				tempEqs[row][column] = equations[row][column].plus();
+		for(int index = 0; index < dimension; index++)
+			tempTerms[index] = terms[index].plus();
+		for(int i = 0; i < dimension - 1; i++)
+			for(int j = i + 1; j < dimension; j++)
+				if(!tempEqs[j][i].equals(BigDecimal.ZERO)) {
+					BigDecimal scalar1 = tempEqs[i][i].negate(), scalar2 = tempEqs[j][i].plus();
+					multiplyRowByScalar(tempEqs,scalar2,i);
+					multiplyRowByScalar(tempEqs,scalar1,j);
+					addTwoRows(tempEqs,i,j);
+					tempTerms[i] = tempTerms[i].multiply(scalar2);
+					tempTerms[j] = tempTerms[j].multiply(scalar1);
+					tempTerms[j] = tempTerms[j].add(tempTerms[i]);
+				}
+		for(int i = dimension - 1; i > 0; i--)
+			for(int j = i - 1; j>= 0; j--)
+				if(!tempEqs[j][i].equals(BigDecimal.ZERO)) {
+					BigDecimal scalar1 = tempEqs[j][i].negate(), scalar2 = tempEqs[i][i].plus();
+					multiplyRowByScalar(tempEqs, scalar1, i);
+					multiplyRowByScalar(tempEqs, scalar2, j);
+					addTwoRows(tempEqs, i, j);
+					tempTerms[i] = tempTerms[i].multiply(scalar1);
+					tempTerms[j] = tempTerms[j].multiply(scalar2);
+					tempTerms[j] = tempTerms[j].add(tempTerms[i]);
+				}
+		BigDecimal[] solution = new BigDecimal[dimension];
+		for(int i = 0; i < dimension; i++)
+			solution[i] = tempTerms[i].divide(tempEqs[i][i],RoundingMode.CEILING);
+		return solution;
+	}
 }

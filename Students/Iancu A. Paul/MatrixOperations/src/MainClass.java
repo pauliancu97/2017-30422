@@ -17,6 +17,12 @@ public class MainClass {
 				System.out.print(res[i][j]+" ");
 			System.out.println("");
 		}*/
-		System.out.println(matrixOps.areEqual(first, second));
+		BigDecimal[][] equations = {{ new BigDecimal(2), new BigDecimal(1) },
+				                    { new BigDecimal(3), new BigDecimal(5)}};
+		BigDecimal[] terms = { new BigDecimal(4), new BigDecimal(13) };
+		BigDecimal[] solution = matrixOps.solveSystem(equations, terms);
+		for(int i = 0; i < solution.length; i++)
+			System.out.print(solution[i]+" ");
+		
 	}
 }
