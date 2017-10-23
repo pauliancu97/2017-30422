@@ -29,17 +29,21 @@ public class InputOutput {
 			return null;
 		String line = in.nextLine();
 		if(line.equals("ADD"))
-			return new Instruction(Instruction.ADD);
+			return new Instruction(InstructionType.ADD);
 		if(line.equals("SUBTRACT"))
-			return new Instruction(Instruction.SUBTRACT);
+			return new Instruction(InstructionType.SUBTRACT);
 		if(line.equals("MULTIPLY"))
-			return new Instruction(Instruction.MULTIPLY);
+			return new Instruction(InstructionType.MULTIPLY);
+		if(line.equals("DIV_Q"))
+			return new Instruction(InstructionType.DIV_Q);
+		if(line.equals("DIV_R"))
+			return new Instruction(InstructionType.DIV_R);
 		String[] split=line.split(" ");
 		String command=split[0];
 		double argument=Double.parseDouble(split[1]);
 		if(command.equals("MUL_SCAL"))
-			return new Instruction(Instruction.MUL_SCAL,argument);
-		return new Instruction(Instruction.EVAL,argument);
+			return new Instruction(InstructionType.MUL_SCAL,argument);
+		return new Instruction(InstructionType.EVAL,argument);
 	}
 	
 	public void skipLine() {

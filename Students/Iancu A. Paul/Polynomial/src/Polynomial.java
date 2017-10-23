@@ -51,15 +51,20 @@ public class Polynomial {
 		/*If the power is greater than the current degree, create space for more coefficients
 		 and increase the degree to n*/
 		if(n > degree) {
-			double[] newCoefficients = new double[n+1];
-			for(int index=0; index <= degree; index++)
-				newCoefficients[index] = coefficients[index];
-			newCoefficients[n] = val;
-			coefficients = newCoefficients;
-			degree = n;
+			if(val > 0.0) {
+				double[] newCoefficients = new double[n+1];
+				for(int index=0; index <= degree; index++)
+					newCoefficients[index] = coefficients[index];
+				newCoefficients[n] = val;
+				coefficients = newCoefficients;
+				degree = n;
+			}
 		}
-		else if(n >= 0)//otherwise, just set the coefficient
+		else if(n >= 0) {//otherwise, just set the coefficient
 			coefficients[n] = val;
+			if(coefficients[degree] == 0)
+				degree--;
+		}
 	}
 	
 	/**
@@ -72,5 +77,9 @@ public class Polynomial {
 		for(int power=0; power <= degree; power++)
 			result += Math.pow(x, power) * coefficients[power];
 		return result;
+	}
+	
+	public Polynomial getCopy() {
+		return new Polynomial(coefficients);
 	}
 }

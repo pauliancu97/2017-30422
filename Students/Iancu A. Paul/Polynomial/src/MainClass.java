@@ -11,29 +11,37 @@ public class MainClass {
 		while((instruction = io.readInstruction()) != null) {
 			switch(instruction.getType()) 
 			{
-			case Instruction.ADD:
+			case ADD:
 				result=Functions.add(first, second);
 				io.write(result);
 				break;
-			case Instruction.SUBTRACT:
+			case SUBTRACT:
 				result=Functions.subtract(first, second);
 				io.write(result);
 				break;
-			case Instruction.MULTIPLY:
+			case MULTIPLY:
 				result=Functions.multiply(first, second);
 				io.write(result);
 				break;
-			case Instruction.MUL_SCAL:
+			case MUL_SCAL:
 				result=Functions.scale(first, instruction.getArgument());
 				io.write(result);
 				result=Functions.scale(second, instruction.getArgument());
 				io.write(result);
 				break;
-			case Instruction.EVAL:
+			case EVAL:
 				val = first.evaluate(instruction.getArgument());
 				io.write(val);
 				val = second.evaluate(instruction.getArgument());
 				io.write(val);
+				break;
+			case DIV_Q:
+				result = Functions.getDivisionQutient(first, second);
+				io.write(result);
+				break;
+			case DIV_R:
+				result = Functions.getDivisionRest(first, second);
+				io.write(result);
 				break;
 			}
 		}

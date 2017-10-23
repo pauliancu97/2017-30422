@@ -69,4 +69,30 @@ public class Functions {
 		}
 		return result;
 	}
+	
+	public static Polynomial getDivisionQutient(Polynomial first, Polynomial second) {
+		Polynomial quotient = new Polynomial();
+		Polynomial temp = first.getCopy();
+		int degreeTemp = temp.getDegree(), degreeSecond = second.getDegree();
+		double coeffSecond = second.getCoefficient(degreeSecond);
+		while(degreeTemp >= degreeSecond) {
+			double coeffTemp = temp.getCoefficient(degreeTemp);
+			quotient.setCoefficient(degreeTemp - degreeSecond, coeffTemp / coeffSecond);
+			Polynomial scalePoly = new Polynomial();
+			scalePoly.setCoefficient(degreeTemp - degreeSecond, coeffTemp / coeffSecond);
+			Polynomial subtractor = Functions.multiply(second, scalePoly);
+			subtractor.setCoefficient(degreeTemp, coeffTemp);
+			temp = Functions.subtract(temp, subtractor);
+			degreeTemp = temp.getDegree();
+		}
+		return quotient;
+	}
+	
+	public static Polynomial getDivisionRest(Polynomial first, Polynomial second) {
+		Polynomial quotient = Functions.getDivisionQutient(first, second);
+		Polynomial subtractor = Functions.multiply(quotient, second);
+		return Functions.subtract(first, subtractor);
+	}
+	
+	
 }
