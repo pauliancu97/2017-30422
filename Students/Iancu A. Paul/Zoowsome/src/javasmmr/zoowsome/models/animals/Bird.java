@@ -4,7 +4,8 @@ public abstract class Bird extends Animal{
 	private boolean migrates;
 	private int avgFlightAltitude;
 	
-	Bird(boolean migrates, int avgFlightAltitude){	
+	Bird(boolean migrates, int avgFlightAltitude, double maintenanceCost, double dangerPerc){
+		super(maintenanceCost, dangerPerc);
 		this.migrates = migrates;
 		setAverageFlightAltitude(avgFlightAltitude);
 	}

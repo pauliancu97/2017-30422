@@ -4,8 +4,8 @@ public abstract class Aquatic extends Animal{
 	private int avgSwimDepth;
 	private WaterType waterType;
 	
-	Aquatic(int avgSwimDepth, WaterType waterType){
-		
+	Aquatic(int avgSwimDepth, WaterType waterType, double maintenanceCost, double dangerPerc){
+		super(maintenanceCost, dangerPerc);
 		setAverageSwimDepth(avgSwimDepth);
 		this.waterType = waterType;
 	}
