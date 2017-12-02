@@ -1,11 +1,14 @@
 package javasmmr.zoowsome.controllers;
 
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import javax.xml.stream.*;
 
 import javasmmr.zoowsome.models.animals.*;
 import javasmmr.zoowsome.models.employees.*;
 import javasmmr.zoowsome.services.factories.*;
+import javasmmr.zoowsome.repositories.*;
 
 public class MainController {
 	public static final String[][] animalsConstants = {{Constants.Animals.Mammals.Tiger,Constants.Animals.Mammals.Monkey,Constants.Animals.Mammals.Cow},
@@ -38,20 +41,39 @@ public class MainController {
 				}
 			}
 		}
+		AnimalRepository animalRepository = new AnimalRepository();
+		try {
+			animalRepository.save(animals);
+		}catch(FileNotFoundException e) {
+			System.out.println("File wasn't found");
+		}
+		catch(XMLStreamException e) {
+			System.out.println("Problems with the XML file");
+		}
 		EmployeeAbstractFactory empAbstrFactory = new EmployeeAbstractFactory();
 		CaretakerFactory employeeFactory = null;
 		try {
 			employeeFactory = (CaretakerFactory)empAbstrFactory.getEmployeeFactory(Constants.Employees.Caretaker);
 		}catch(Exception ex) {}
-		ArrayList<Caretaker> caretakers = new ArrayList<Caretaker>();
+		ArrayList<Employee> caretakers = new ArrayList<Employee>();
 		caretakers.add(employeeFactory.getEmployee("John", new BigDecimal(100.0)));
 		caretakers.add(employeeFactory.getEmployee("Paul", new BigDecimal(100.0)));
 		caretakers.add(employeeFactory.getEmployee("Geroge", new BigDecimal(100.0)));
 		caretakers.add(employeeFactory.getEmployee("Ringo", new BigDecimal(100.0)));
-		for(Caretaker caretaker:caretakers) {
+		EmployeeRepository employeeRepository = new EmployeeRepository();
+		try {
+			employeeRepository.save(caretakers);
+		}catch(FileNotFoundException e) {
+			System.out.println("File wasn't found");
+		}
+		catch(XMLStreamException e) {
+			System.out.println("Problems with the XML file");
+		}
+		for(Employee caretaker:caretakers) {
 			for(Animal animal:animals) {
 				if(!caretaker.getIsDead() && !animal.isTakenCareOf()) {
-					String result = caretaker.takeCareOf(animal);
+					Caretaker realCaretaker = (Caretaker) caretaker;
+					String result = realCaretaker.takeCareOf(animal);
 					if(result.equals(Constants.Employees.Caretakers.TCO_KILLED)) {
 						caretaker.setIsDead(true);
 					}

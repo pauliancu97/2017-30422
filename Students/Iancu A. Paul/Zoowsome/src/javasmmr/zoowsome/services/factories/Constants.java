@@ -9,6 +9,12 @@ public final class Constants {
 		public static final String Insects = "Insects";
 	}
 	
+	public static final class XML_TAGS{
+		public static final String ANIMAL="ANIMAL";
+		public static final String DISCRIMINANT = "DISCIRMINANT";
+		public static final String EMPLOYEE = "EMPLOYEE";
+	}
+	
 	public static final class Animals{
 		public static final class Mammals{
 			public static final String Tiger = "TIGER";
