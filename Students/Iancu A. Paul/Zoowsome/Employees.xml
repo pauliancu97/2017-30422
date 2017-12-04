@@ -4,7 +4,7 @@
 	<id>1</id>
 	<salary>100</salary>
 	<isDead>false</isDead>
-	<workingHours>39.8229963939287</workingHours>
+	<workingHours>34.70607426395017</workingHours>
 	<DISCIRMINANT>Caretaker</DISCIRMINANT>
 </EMPLOYEE>
 <EMPLOYEE>
@@ -12,7 +12,7 @@
 	<id>2</id>
 	<salary>100</salary>
 	<isDead>false</isDead>
-	<workingHours>35.434663096636775</workingHours>
+	<workingHours>13.625025335268468</workingHours>
 	<DISCIRMINANT>Caretaker</DISCIRMINANT>
 </EMPLOYEE>
 <EMPLOYEE>
@@ -20,7 +20,7 @@
 	<id>3</id>
 	<salary>100</salary>
 	<isDead>false</isDead>
-	<workingHours>20.765588315430403</workingHours>
+	<workingHours>34.99486879051871</workingHours>
 	<DISCIRMINANT>Caretaker</DISCIRMINANT>
 </EMPLOYEE>
 <EMPLOYEE>
@@ -28,7 +28,7 @@
 	<id>4</id>
 	<salary>100</salary>
 	<isDead>false</isDead>
-	<workingHours>13.095815265356256</workingHours>
+	<workingHours>28.23064290136863</workingHours>
 	<DISCIRMINANT>Caretaker</DISCIRMINANT>
 </EMPLOYEE>
 </content>
